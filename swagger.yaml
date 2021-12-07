@@ -1,0 +1,335 @@
+openapi: 3.0.0
+info:
+  title: measure-client-api
+  contact: {}
+  version: '1.0'
+servers:
+  - url: https://measure-client-api.herokuapp.com/api/v1
+    variables: {}
+paths:
+  /auth/register:
+    post:
+      tags:
+        - Auth
+      summary: Register user
+      operationId: Registeruser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisteruserRequest'
+            example:
+              username: admin
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Login user
+      operationId: Loginuser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginuserRequest'
+            example:
+              email: spiyoyo@gmail.com
+              password: secret
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /clients:
+    post:
+      tags:
+        - Clients
+      summary: Create client
+      operationId: Createclient
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateclientRequest'
+            example:
+              name: Spiyoyo 3 client
+              measurements:
+                lengthOfDress: 554
+                bust: 33
+                halfLength: 44
+                hips: 21
+                waist: 33
+                underbustLength: 33
+                underbustCircumference: 22
+                shoulder: 56
+                sleeve: 35
+                crotch: 44
+                skirtOrPantLength: 32
+                band: 33
+                bustPoint: 45
+                shoulderToKnee: 23
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    get:
+      tags:
+        - Clients
+      summary: Get all clients
+      operationId: Getallclients
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /clients/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The client ID
+    get:
+      tags:
+        - Clients
+      summary: Get single client
+      operationId: Getsingleclient
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    patch:
+      tags:
+        - Clients
+      summary: Update client
+      operationId: Updateclient
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateclientRequest'
+            example:
+              name: Spiyoyo 3 client updated
+              measurements:
+                lengthOfDress: 54
+                bust: 33
+                halfLength: 44
+                hips: 21
+                waist: 33
+                underbustLength: 33
+                underbustCircumference: 22
+                shoulder: 56
+                sleeve: 35
+                crotch: 44
+                skirtOrPantLength: 32
+                band: 33
+                bustPoint: 45
+                shoulderToKnee: 23
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    delete:
+      tags:
+        - Clients
+      summary: Delete client
+      operationId: Deleteclient
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    RegisteruserRequest:
+      title: RegisteruserRequest
+      required:
+        - username
+      type: object
+      properties:
+        username:
+          type: string
+      example:
+        username: admin
+    LoginuserRequest:
+      title: LoginuserRequest
+      required:
+        - email
+        - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: spiyoyo@gmail.com
+        password: secret
+    CreateclientRequest:
+      title: CreateclientRequest
+      required:
+        - name
+        - measurements
+      type: object
+      properties:
+        name:
+          type: string
+        measurements:
+          $ref: '#/components/schemas/Measurements'
+      example:
+        name: Spiyoyo 3 client
+        measurements:
+          lengthOfDress: 554
+          bust: 33
+          halfLength: 44
+          hips: 21
+          waist: 33
+          underbustLength: 33
+          underbustCircumference: 22
+          shoulder: 56
+          sleeve: 35
+          crotch: 44
+          skirtOrPantLength: 32
+          band: 33
+          bustPoint: 45
+          shoulderToKnee: 23
+    Measurements:
+      title: Measurements
+      required:
+        - lengthOfDress
+        - bust
+        - halfLength
+        - hips
+        - waist
+        - underbustLength
+        - underbustCircumference
+        - shoulder
+        - sleeve
+        - crotch
+        - skirtOrPantLength
+        - band
+        - bustPoint
+        - shoulderToKnee
+      type: object
+      properties:
+        lengthOfDress:
+          type: integer
+          format: int32
+        bust:
+          type: integer
+          format: int32
+        halfLength:
+          type: integer
+          format: int32
+        hips:
+          type: integer
+          format: int32
+        waist:
+          type: integer
+          format: int32
+        underbustLength:
+          type: integer
+          format: int32
+        underbustCircumference:
+          type: integer
+          format: int32
+        shoulder:
+          type: integer
+          format: int32
+        sleeve:
+          type: integer
+          format: int32
+        crotch:
+          type: integer
+          format: int32
+        skirtOrPantLength:
+          type: integer
+          format: int32
+        band:
+          type: integer
+          format: int32
+        bustPoint:
+          type: integer
+          format: int32
+        shoulderToKnee:
+          type: integer
+          format: int32
+      example:
+        lengthOfDress: 554
+        bust: 33
+        halfLength: 44
+        hips: 21
+        waist: 33
+        underbustLength: 33
+        underbustCircumference: 22
+        shoulder: 56
+        sleeve: 35
+        crotch: 44
+        skirtOrPantLength: 32
+        band: 33
+        bustPoint: 45
+        shoulderToKnee: 23
+    UpdateclientRequest:
+      title: UpdateclientRequest
+      required:
+        - name
+        - measurements
+      type: object
+      properties:
+        name:
+          type: string
+        measurements:
+          $ref: '#/components/schemas/Measurements'
+      example:
+        name: Spiyoyo 3 client updated
+        measurements:
+          lengthOfDress: 554
+          bust: 33
+          halfLength: 44
+          hips: 21
+          waist: 33
+          underbustLength: 33
+          underbustCircumference: 22
+          shoulder: 56
+          sleeve: 35
+          crotch: 44
+          skirtOrPantLength: 32
+          band: 33
+          bustPoint: 45
+          shoulderToKnee: 23
+  securitySchemes:
+    httpBearer:
+      type: http
+      scheme: bearer
+security:
+  - httpBearer: []
+tags:
+  - name: Auth
+    description: ''
+  - name: Clients
+    description: ''

@@ -7,6 +7,12 @@ const ClientSchema = new mongoose.Schema(
       required: [true, 'Please enter client name'],
       maxLength: 40,
     },
+    gender: {
+      type: String,
+      enum: ['female', 'male'],
+      default: 'female',
+      require: true,
+    },
     measurements: {
       lengthOfDress: Number,
       bust: Number,
@@ -22,6 +28,12 @@ const ClientSchema = new mongoose.Schema(
       band: Number,
       bustPoint: Number,
       shoulderToKnee: Number,
+      collar: Number,
+      chest: Number,
+      sleeve: Number,
+      insideLeg: Number,
+      outsideLeg: Number,
+      centreBackLength: Number,
     },
     createdBy: {
       type: mongoose.Types.ObjectId,

@@ -21,7 +21,9 @@ paths:
             schema:
               $ref: '#/components/schemas/RegisteruserRequest'
             example:
-              username: admin
+              username: spiyoyo
+              email: spiyoyo@gmail.com
+              password: secret
         required: true
       responses:
         '200':

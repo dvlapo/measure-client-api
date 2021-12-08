@@ -11,7 +11,7 @@ const ClientSchema = new mongoose.Schema(
       type: String,
       enum: ['female', 'male'],
       default: 'female',
-      require: true,
+      required: [true, 'Please choose client gender'],
     },
     measurements: {
       lengthOfDress: Number,

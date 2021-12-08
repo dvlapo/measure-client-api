@@ -67,7 +67,7 @@ paths:
               $ref: '#/components/schemas/CreateclientRequest'
             example:
               name: Spiyoyo 3 client
-              genger: female
+              gender: female
               measurements:
                 lengthOfDress: 554
                 bust: 33

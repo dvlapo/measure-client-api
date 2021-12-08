@@ -172,12 +172,20 @@ components:
       title: RegisteruserRequest
       required:
         - username
+        - email
+        - password
       type: object
       properties:
         username:
           type: string
+        email:
+          type: string
+        password:
+          type: string
       example:
-        username: admin
+        username: spiyoyo
+        email: spiyoyo@gmail.com
+        password: secret
     LoginuserRequest:
       title: LoginuserRequest
       required:
@@ -202,10 +210,12 @@ components:
       properties:
         name:
           type: string
+        gender:
+          type: string
         measurements:
           $ref: '#/components/schemas/Measurements'
       example:
-        name: Spiyoyo 3 client
+        name: Spiyoyo client
         gender: female
         measurements:
           lengthOfDress: 554
@@ -308,13 +318,15 @@ components:
       properties:
         name:
           type: string
+        gender:
+          type: string
         measurements:
           $ref: '#/components/schemas/Measurements'
       example:
-        name: Spiyoyo 3 client updated
+        name: Spiyoyo client updated
         gender: male
         measurements:
-          lengthOfDress: 554
+          lengthOfDress: 54
           bust: 33
           halfLength: 44
           hips: 21

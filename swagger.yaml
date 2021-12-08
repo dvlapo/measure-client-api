@@ -67,6 +67,7 @@ paths:
               $ref: '#/components/schemas/CreateclientRequest'
             example:
               name: Spiyoyo 3 client
+              genger: female
               measurements:
                 lengthOfDress: 554
                 bust: 33
@@ -132,6 +133,7 @@ paths:
               $ref: '#/components/schemas/UpdateclientRequest'
             example:
               name: Spiyoyo 3 client updated
+              gender: male
               measurements:
                 lengthOfDress: 54
                 bust: 33
@@ -194,6 +196,7 @@ components:
       title: CreateclientRequest
       required:
         - name
+        - gender
         - measurements
       type: object
       properties:
@@ -203,6 +206,7 @@ components:
           $ref: '#/components/schemas/Measurements'
       example:
         name: Spiyoyo 3 client
+        gender: female
         measurements:
           lengthOfDress: 554
           bust: 33
@@ -298,6 +302,7 @@ components:
       title: UpdateclientRequest
       required:
         - name
+        - gender
         - measurements
       type: object
       properties:
@@ -307,6 +312,7 @@ components:
           $ref: '#/components/schemas/Measurements'
       example:
         name: Spiyoyo 3 client updated
+        gender: male
         measurements:
           lengthOfDress: 554
           bust: 33
